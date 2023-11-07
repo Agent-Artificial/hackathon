@@ -6,6 +6,8 @@
 Edit /ngrok/.env.example to with your ngrok auth key
 Save as /ngrok/.env
 
+Copy (and edit passwords) all of the .env.example files in subfolders
+
 ```
 docker network create dev
 docker compose up -d
