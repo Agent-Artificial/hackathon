@@ -1,0 +1,16 @@
+version: '3'
+services:
+  ngrok:
+    image: ngrok/ngrok:latest
+    network_mode: host
+    env_file:
+      - .env    
+    environment:
+      - NGROK_AUTHTOKEN=${NGROK_AUTHTOKEN}
+    command:
+      - "start"
+      - "--all"
+      - "--config"
+      - "/etc/ngrok.yml"
+    volumes:
+      - ./ngrok.yml:/etc/ngrok.yml

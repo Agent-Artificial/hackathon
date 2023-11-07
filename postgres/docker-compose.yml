@@ -1,0 +1,21 @@
+version: '3'
+services:
+  postgres:
+    image: 'postgres:latest'
+    container_name: postgres
+    env_file:
+      - .env
+    restart: always
+    networks:
+      - dev
+    volumes:
+      - postgres:/var/lib/postgresql/data
+
+
+networks:
+  dev:
+    external: true
+
+
+volumes:
+  postgres:

@@ -1,0 +1,71 @@
+version: '3'
+
+services:
+  postgres:
+    image: 'postgres:latest'
+    container_name: postgres
+    env_file:
+      - redis/.env
+    restart: always
+    networks:
+      - dev
+    volumes:
+      - postgres:/var/lib/postgresql/data
+
+  ngrok:
+    image: ngrok/ngrok:latest
+    network_mode: host
+    env_file:
+      - ngrok/.env
+    # environment:
+    #   - NGROK_AUTHTOKEN=${NGROK_AUTHTOKEN}
+    command:
+      - "start"
+      - "--all"
+      - "--config"
+      - "/etc/ngrok.yml"
+    volumes:
+      - ./ngrok/ngrok.yml:/etc/ngrok.yml
+
+  code-server:
+    build:
+      context: dev_environment/
+      dockerfile: Dockerfile
+    container_name: code-server
+    env_file:
+      - dev_environment/.env
+    volumes:
+      - ./dev_environment/config:/config
+    networks:
+      - dev
+    ports:
+      - 80:8443
+    restart: unless-stopped
+
+  redis:
+    image: 'bitnami/redis:latest'
+    container_name: redis
+    env_file:
+      - redis/.env
+    networks:
+      - dev
+    command: /opt/bitnami/scripts/redis/run.sh --maxmemory 1000mb
+    volumes:
+      - ./redis/redis-persistence:/bitnami
+
+  weaviate:
+    image: semitechnologies/weaviate:1.21.5
+    container_name: weaviate
+    env_file:
+      - weaviate/.env
+    networks:
+      - dev      
+    volumes:
+      - ./weaviate/weaviate_data:/var/lib/weaviate/data      
+
+networks:
+  dev:
+    external: true
+
+volumes:
+  postgres:

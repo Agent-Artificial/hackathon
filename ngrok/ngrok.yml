@@ -1,0 +1,7 @@
+version: 2
+authtoken: ${NGROK_AUTHTOKEN}
+tunnels:
+  http-tunnel:
+    proto: http
+    #hostname: static-domain.ngrok-free.app
+    addr: localhost:80  # References the webserver service

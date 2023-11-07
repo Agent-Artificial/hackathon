@@ -1,0 +1,17 @@
+version: '2'
+
+services:
+  redis:
+    image: 'bitnami/redis:latest'
+    container_name: redis
+    env_file:
+      - .env      
+    networks:
+      - dev
+    command: /opt/bitnami/scripts/redis/run.sh --maxmemory 1000mb
+    volumes:
+      - './redis-persistence:/bitnami'
+
+networks:
+  dev:
+    external: true

@@ -158,3 +158,14 @@ cython_debug/
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
+
+*.env
+
+# Don't save weaviate data to git repo (depending on use case this could be bad)
+weaviate/weaviate_data/*
+
+# Don't save dev environment to git repo (depending on use case this could be bad)
+dev_environment/config/*
+
+# Don't save redis data to git repo (depending on use case this could be bad)
+redis/redis-persistence/*

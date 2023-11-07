@@ -1,0 +1,21 @@
+---
+version: "2.1"
+services:
+  code-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: code-server
+    env_file:
+      - .env
+    volumes:
+      - ./config:/config
+    networks:
+      - dev    
+    ports:
+      - 80:8443
+    restart: unless-stopped
+
+networks:
+  dev:
+    external: true    
