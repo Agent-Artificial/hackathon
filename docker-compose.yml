@@ -38,6 +38,7 @@ services:
     volumes:
       #- ./dev_environment/config:/config
       - ./dev_environment/workspace:/workspace
+      - /var/run/docker.sock:/var/run/docker.sock
     networks:
       - dev
     ports:

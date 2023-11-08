@@ -11,6 +11,7 @@ services:
     volumes:
       #- ./config:/config
       - ./workspace:/workspace
+      - /var/run/docker.sock:/var/run/docker.sock
     networks:
       - dev    
     ports:
