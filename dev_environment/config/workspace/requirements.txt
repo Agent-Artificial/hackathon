@@ -1,0 +1,16 @@
+# suggested packages - remove/add based on your needs
+python-dotenv
+optimum
+chromadb
+pypdf
+IPython
+argparse
+pandas
+pandas_datareader
+matplotlib
+elevenlabs
+SpeechRecognition
+pyautogen
+pydantic
+wolframalpha
+openai

@@ -1,0 +1,22 @@
+version: '3'
+services:
+  litellm:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: litellm
+    networks:
+      - dev
+    ports:
+      - 8000:8000
+    deploy:
+     resources:
+       reservations:
+         devices:
+           - driver: nvidia
+             count: all
+             capabilities: [gpu]
+
+networks:
+  dev:
+    external: true
