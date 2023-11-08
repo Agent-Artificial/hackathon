@@ -5,7 +5,7 @@ services:
     image: 'postgres:latest'
     container_name: postgres
     env_file:
-      - redis/.env
+      - postgres/.env
     restart: always
     networks:
       - dev
@@ -15,6 +15,7 @@ services:
   ngrok:
     image: ngrok/ngrok:latest
     network_mode: host
+    container_name: ngrok
     env_file:
       - ngrok/.env
     # environment:
