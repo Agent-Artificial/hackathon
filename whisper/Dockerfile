@@ -43,4 +43,4 @@ WORKDIR /app
 RUN mkdir -p in out
 
 
-#ENTRYPOINT ["uvicorn whisper_api:app --reload"]
+CMD ["uvicorn","whisper_api:app","--host","0.0.0.0","--reload"]
