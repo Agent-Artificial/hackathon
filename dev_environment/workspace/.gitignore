@@ -161,11 +161,4 @@ cython_debug/
 
 *.env
 
-# Don't save weaviate data to git repo (depending on use case this could be bad)
-weaviate/weaviate_data/
-
-# Don't save dev environment to git repo (depending on use case this could be bad)
-dev_environment/config/*.*
-
-# Don't save redis data to git repo (depending on use case this could be bad)
-redis/redis-persistence/*
+.cache/

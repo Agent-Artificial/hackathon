@@ -36,7 +36,8 @@ services:
     env_file:
       - dev_environment/.env
     volumes:
-      - ./dev_environment/config:/config
+      #- ./dev_environment/config:/config
+      - ./dev_environment/workspace:/workspace
     networks:
       - dev
     ports:

@@ -9,7 +9,8 @@ services:
     env_file:
       - .env
     volumes:
-      - ./config:/config
+      #- ./config:/config
+      - ./workspace:/workspace
     networks:
       - dev    
     ports:

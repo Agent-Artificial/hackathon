@@ -1,0 +1,4 @@
+# suggested packages - remove/add based on your needs
+python-dotenv
+pyautogen
+openai

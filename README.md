@@ -1,4 +1,4 @@
-# docker-hackathon
+# Hackathon Dev Environment Bonanza!
 
 
 ## Quick-Start
